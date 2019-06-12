@@ -33,6 +33,7 @@ IF(WIN32 AND NOT BUILD_MSYS2_INSTALL)
 
       function(process_file filename)
         execute_process(COMMAND \"${cygcheck_BIN}\" \"\${filename}\" OUTPUT_VARIABLE FILES ERROR_QUIET)
+		string(REPLACE \"/\" \"\\\\\" FILES \"\${FILES}\") # make sure every path contains only backslashes
         string(REGEX MATCHALL \"${DIRS}[^\\n\\r]*[dD][lL][lL]\" FILES_LIST \"\${FILES}\")
         set(EXTRA_DEPS \${EXTRA_DEPS} \${FILES_LIST} PARENT_SCOPE)
       endfunction()

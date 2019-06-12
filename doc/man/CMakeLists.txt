@@ -40,9 +40,12 @@ endforeach(manpage)
 
 # we also want to have translated manpages
 find_program(po4a-translate_BIN po4a-translate)
+if(WIN32 AND NOT po4a-translate_BIN STREQUAL "po4a-translate_BIN-NOTFOUND")
+	set(po4a-translate_BIN ${perl_BIN} ${po4a-translate_BIN})
+endif()
 
 # create and install translated manpages
-if(${po4a-translate_BIN} STREQUAL "po4a-translate_BIN-NOTFOUND")
+if(po4a-translate_BIN STREQUAL "po4a-translate_BIN-NOTFOUND")
   message("Missing po4a-translate. Can NOT create translated manpages")
 else()
   file(STRINGS "po/LINGUAS" LANGUAGES)

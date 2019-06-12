@@ -1,0 +1,18 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "externalConsole": true,
+      "inheritEnvironments": [
+        "mingw_64"
+      ],
+      "miDebuggerPath": "${env.MINGW_PREFIX}\\bin\\gdb.exe",
+      "MIMode": "gdb",
+      "name": "darktable GDB",
+      "program": "${debugInfo.target}",
+      "project": "buildvs\\install\\bin\\darktable.exe",
+      "type": "cppdbg"
+    }
+  ]
+}

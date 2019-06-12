@@ -38,9 +38,19 @@ if(NOT Saxon_FOUND)
     set(XSLT_XSLTPROC_EXECUTABLE "${Xsltproc_BIN}")
 endif()
 
-if(${Xml2po_BIN} STREQUAL "Xml2po_BIN-NOTFOUND")
+if(Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
     message("Missing xml2po. No localized usermanuals are build")
-#     set(can_build_usermanual OFF)
+endif()
+
+if(WIN32 AND NOT Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
+	get_filename_component(python2_BIN ${Xml2po_BIN} DIRECTORY)
+	set(python2_BIN ${python2_BIN}\\python2.exe)
+	if(NOT EXISTS ${python2_BIN})
+		message("Missing python2. No localized usermanuals are build")
+		set(Xml2po_BIN "Xml2po_BIN-NOTFOUND")
+	else()
+		set(Xml2po_BIN ${python2_BIN} ${Xml2po_BIN})
+	endif()
 endif()
 
 if(${Convert_BIN} STREQUAL "Convert_BIN-NOTFOUND")
@@ -190,7 +200,7 @@ if(can_build_usermanual)
     add_custom_target(darktable-usermanual-dtorg-images DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/dtorg/images/)
     add_custom_target(darktable-usermanual-dtorg)
 
-    if(${Xml2po_BIN} STREQUAL "Xml2po_BIN-NOTFOUND")
+    if(Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
       set(dtorg_languages en)
     else()
       file(STRINGS "DTORG.LINGUAS" dtorg_languages)
@@ -211,7 +221,7 @@ if(can_build_usermanual)
         set(xmllangfile "${CMAKE_CURRENT_BINARY_DIR}/darktable_single-${language}.xml")
         add_custom_command(
             OUTPUT ${xmllangfile}
-            COMMAND xml2po -e -p ${pofile} -l ${language} -o ${xmllangfile} ${xmlfile}
+            COMMAND ${Xml2po_BIN} -e -p ${pofile} -l ${language} -o ${xmllangfile} ${xmlfile}
             DEPENDS ${pofile} ${xmlfile}
             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
             COMMENT "Creating translated XML usermanual file (${language})" VERBATIM
@@ -246,7 +256,7 @@ if(can_build_usermanual)
     #
     # draft translated usermanuals
     #
-    if(NOT ${Xml2po_BIN} STREQUAL "Xml2po_BIN-NOTFOUND")
+    if(NOT Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
         # localized draft usermanuals
         file(STRINGS "po/LINGUAS" LANGUAGES)
         foreach(language ${LANGUAGES})
@@ -258,7 +268,7 @@ if(can_build_usermanual)
             set(xmllangtmp "${CMAKE_CURRENT_BINARY_DIR}/darktable_single-${language}.tmp")
             add_custom_command(
                 OUTPUT ${pdffile}
-                COMMAND xml2po -e -p ${pofile} -l ${language} ${xmlfile} > ${xmllangtmp}
+                COMMAND ${Xml2po_BIN} -e -p ${pofile} -l ${language} ${xmlfile} > ${xmllangtmp}
                 COMMAND cat ${xmllangtmp} | sed "s/fileref=\"\\([^>]*\\)\\(\\/images\\/\\)\\([^>]*\\)\\(.png\\)\"/fileref=\"${binary_path}\\/media\\/images\\/\\1\\/\\3.jpg\"/g ; s/fileref=\"images\\/\\([^>]*\\)\\(.png\\)\"/fileref=\"${binary_path}\\/media\\/images\\/\\1.jpg\"/g" > ${xmllangfile}
                 COMMAND ${Xsltproc_BIN} --nonet --output ${fofile} xsl/darktable_fo.xsl ${xmllangfile}
                 COMMAND fop -c fopconfig.xml ${fofile} -pdf ${pdffile}
@@ -358,7 +368,7 @@ if(can_build_usermanual)
     #
     # draft translated API
     #
-    if(NOT ${Xml2po_BIN} STREQUAL "Xml2po_BIN-NOTFOUND")
+    if(NOT Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
         # localized draft usermanuals
         file(STRINGS "po/LINGUAS" LANGUAGES)
         foreach(language ${LANGUAGES})
@@ -370,7 +380,7 @@ if(can_build_usermanual)
             set(xmllangtmp "${CMAKE_CURRENT_BINARY_DIR}/darktable_lua_api-${language}.tmp")
             add_custom_command(
                 OUTPUT ${pdffile}
-                COMMAND xml2po -e -p ${pofile} -l ${language} ${xmlfile} > ${xmllangtmp}
+                COMMAND ${Xml2po_BIN} -e -p ${pofile} -l ${language} ${xmlfile} > ${xmllangtmp}
                 COMMAND cat ${xmllangtmp} | sed "s/fileref=\"\\([^>]*\\)\\(\\/images\\/\\)\\([^>]*\\)\\(.png\\)\"/fileref=\"${binary_path}\\/media\\/images\\/\\1\\/\\3.jpg\"/g ; s/fileref=\"images\\/\\([^>]*\\)\\(.png\\)\"/fileref=\"${binary_path}\\/media\\/images\\/\\1.jpg\"/g" > ${xmllangfile}
                 COMMAND ${Xsltproc_BIN} --nonet --output ${fofile} xsl/darktable_fo.xsl ${xmllangfile}
                 COMMAND fop -c fopconfig.xml ${fofile} -pdf ${pdffile}

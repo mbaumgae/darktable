@@ -8,7 +8,7 @@ if(${Xsltproc_BIN} STREQUAL "Xsltproc_BIN-NOTFOUND")
 	set(can_update_usermanual OFF)
 endif()
 
-if(${Xml2po_BIN} STREQUAL "Xml2po_BIN-NOTFOUND")
+if(Xml2po_BIN STREQUAL "Xml2po_BIN-NOTFOUND")
 	message("Missing xml2po")
 	set(can_update_usermanual OFF)
 endif()
