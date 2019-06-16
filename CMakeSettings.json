@@ -1,29 +1,29 @@
 ﻿{
-  "environments": [
-    {
-      "MINGW64_ROOT": "K:\\Programme\\msys64\\mingw64",
-      "BIN_ROOT": "${env.MINGW64_ROOT}\\bin",
-      "FLAVOR": "x86_64-w64-mingw32",
-      "TOOLSET_VERSION": "9.1.0",
-      "INCLUDE": "${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\tr1;${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\${env.FLAVOR};${env.MINGW64_ROOT}\\include",
-      "MINGW_PREFIX": "K:/Programme/msys64/mingw64",
-      "MINGW_CHOST": "x86_64-w64-mingw32",
-      "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
-      "MSYSTEM": "MINGW64",
-      "MSYSTEM_CARCH": "x64_64",
-      "MSYSTEM_PREFIX": "K:/Programme/msys64/mingw64",
-      "MSYSTEM_CHOST": "x86_64-w64-mingw32",
-      "SHELL": "${env.MINGW_PREFIX}/../usr/bin/bash",
-      "TEMP": "${env.MINGW_PREFIX}/../tmp",
-      "TMP": "${env.TEMP}",
-      "PATH": "${env.MINGW_PREFIX}/bin;${env.MINGW_PREFIX}/../usr/local/bin;${env.MINGW_PREFIX}/../usr/bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../home/Michael/java/fop;${env.MINGW_PREFIX}/../usr/bin/site_perl;${env.PATH}",
-      "CLASSPATH": "${env.MINGW_PREFIX}/../home/Michael/java/saxon/saxon9he.jar;/home/Michael/java/docbook-xsl-saxon/saxon65.jar;${CLASSPATH}",
-      "SAXON_INSTALL_DIR": "${env.MINGW_PREFIX}/../home/Michael",
-      "environment": "mingw_64"
-    }
-  ],
   "configurations": [
     {
+      "environments": [
+        {
+          "MINGW64_ROOT": "K:\\Programme\\msys64\\mingw64",
+          "BIN_ROOT": "${env.MINGW64_ROOT}\\bin",
+          "FLAVOR": "x86_64-w64-mingw32",
+          "TOOLSET_VERSION": "9.1.0",
+          "INCLUDE": "${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\tr1;${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\${env.FLAVOR};${env.MINGW64_ROOT}\\include",
+          "MINGW_PREFIX": "K:/Programme/msys64/mingw64",
+          "MINGW_CHOST": "x86_64-w64-mingw32",
+          "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+          "MSYSTEM": "MINGW64",
+          "MSYSTEM_CARCH": "x64_64",
+          "MSYSTEM_PREFIX": "K:/Programme/msys64/mingw64",
+          "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+          "SHELL": "${env.MINGW_PREFIX}/../usr/bin/bash",
+          "TEMP": "${env.MINGW_PREFIX}/../tmp",
+          "TMP": "${env.TEMP}",
+          "PATH": "${env.MINGW_PREFIX}/bin;${env.MINGW_PREFIX}/../usr/local/bin;${env.MINGW_PREFIX}/../usr/bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../home/Michael/java/fop;${env.MINGW_PREFIX}/../usr/bin/site_perl;${env.PATH}",
+          "CLASSPATH": "${env.MINGW_PREFIX}/../home/Michael/java/saxon/saxon9he.jar;/home/Michael/java/docbook-xsl-saxon/saxon65.jar;${CLASSPATH}",
+          "SAXON_INSTALL_DIR": "${env.MINGW_PREFIX}/../home/Michael",
+          "environment": "mingw_64"
+        }
+      ],
       "name": "Mingw64-Release",
       "generator": "Ninja",
       "configurationType": "Release",
@@ -69,6 +69,29 @@
       ]
     },
     {
+      "environments": [
+        {
+          "MINGW64_ROOT": "K:\\Programme\\msys64\\mingw64",
+          "BIN_ROOT": "${env.MINGW64_ROOT}\\bin",
+          "FLAVOR": "x86_64-w64-mingw32",
+          "TOOLSET_VERSION": "9.1.0",
+          "INCLUDE": "${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\tr1;${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\${env.FLAVOR};${env.MINGW64_ROOT}\\include",
+          "MINGW_PREFIX": "K:/Programme/msys64/mingw64",
+          "MINGW_CHOST": "x86_64-w64-mingw32",
+          "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+          "MSYSTEM": "MINGW64",
+          "MSYSTEM_CARCH": "x64_64",
+          "MSYSTEM_PREFIX": "K:/Programme/msys64/mingw64",
+          "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+          "SHELL": "${env.MINGW_PREFIX}/../usr/bin/bash",
+          "TEMP": "${env.MINGW_PREFIX}/../tmp",
+          "TMP": "${env.TEMP}",
+          "PATH": "${env.MINGW_PREFIX}/bin;${env.MINGW_PREFIX}/../usr/local/bin;${env.MINGW_PREFIX}/../usr/bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../home/Michael/java/fop;${env.MINGW_PREFIX}/../usr/bin/site_perl;${env.PATH}",
+          "CLASSPATH": "${env.MINGW_PREFIX}/../home/Michael/java/saxon/saxon9he.jar;/home/Michael/java/docbook-xsl-saxon/saxon65.jar;${CLASSPATH}",
+          "SAXON_INSTALL_DIR": "${env.MINGW_PREFIX}/../home/Michael",
+          "environment": "mingw_64"
+        }
+      ],
       "name": "Mingw64-Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
@@ -114,6 +137,29 @@
       "intelliSenseMode": "linux-gcc-x64"
     },
     {
+      "environments": [
+        {
+          "MINGW64_ROOT": "K:\\Programme\\msys64\\mingw64",
+          "BIN_ROOT": "${env.MINGW64_ROOT}\\bin",
+          "FLAVOR": "x86_64-w64-mingw32",
+          "TOOLSET_VERSION": "9.1.0",
+          "INCLUDE": "${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\tr1;${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\${env.FLAVOR};${env.MINGW64_ROOT}\\include",
+          "MINGW_PREFIX": "K:/Programme/msys64/mingw64",
+          "MINGW_CHOST": "x86_64-w64-mingw32",
+          "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+          "MSYSTEM": "MINGW64",
+          "MSYSTEM_CARCH": "x64_64",
+          "MSYSTEM_PREFIX": "K:/Programme/msys64/mingw64",
+          "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+          "SHELL": "${env.MINGW_PREFIX}/../usr/bin/bash",
+          "TEMP": "${env.MINGW_PREFIX}/../tmp",
+          "TMP": "${env.TEMP}",
+          "PATH": "${env.MINGW_PREFIX}/bin;${env.MINGW_PREFIX}/../usr/local/bin;${env.MINGW_PREFIX}/../usr/bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../bin;${env.MINGW_PREFIX}/../home/Michael/java/fop;${env.MINGW_PREFIX}/../usr/bin/site_perl;${env.PATH}",
+          "CLASSPATH": "${env.MINGW_PREFIX}/../home/Michael/java/saxon/saxon9he.jar;/home/Michael/java/docbook-xsl-saxon/saxon65.jar;${CLASSPATH}",
+          "SAXON_INSTALL_DIR": "${env.MINGW_PREFIX}/../home/Michael",
+          "environment": "mingw_64"
+        }
+      ],
       "name": "Mingw64-RelWithDebugInfo",
       "generator": "Ninja",
       "configurationType": "RelWithDebInfo",

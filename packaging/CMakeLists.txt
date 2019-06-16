@@ -53,7 +53,7 @@ IF(WIN32 AND NOT BUILD_MSYS2_INSTALL)
       # install(...) doesn't work in here, and file(INSTALL ...) doesn't put anything into installers,
       # so we have to go over the list of files and do it manually
       foreach(filename IN LISTS EXTRA_DEPS)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E copy \"\${filename}\" \"\${CMAKE_INSTALL_PREFIX}/bin/\")
+        execute_process(COMMAND \"${CMAKE_COMMAND}\" -E copy \"\${filename}\" \"\${CMAKE_INSTALL_PREFIX}/bin/\")
       endforeach()
 
       " COMPONENT DTApplication)
